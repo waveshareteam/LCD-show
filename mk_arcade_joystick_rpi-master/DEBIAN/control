@@ -1,0 +1,10 @@
+Package: mk-arcade-joystick-rpi-dkms
+Version: $MKVERSION
+Architecture: all
+Maintainer: DigitalLumberjack <digitallumberjack@gmail.com>
+Installed-Size: 74
+Depends: dkms (>= 1.95)
+Section: misc
+Priority: optional
+Description: mk_arcade_joystick_rpi driver in DKMS format.
+

@@ -1,0 +1,100 @@
+i=1
+for lines in `cat ./boot/mark`
+do
+  case ${i} in
+  1) var1=${lines};;
+  esac
+  i=`expr ${i} + 1`
+done
+#echo "$var1"
+
+j=$(uname -n)
+if test "$var1" = "0" -a "$1" != "lite" -a "$2" != "lite" ;then
+
+if test "$j" != "retropie" ;then
+sudo apt-get install xserver-xorg-input-evdev
+sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
+fi
+
+if test "$j" = "retropie" ;then
+sudo cp -rf ./nes /home/pi/RetroPie/roms/
+
+sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
+sudo mkdir /etc/modprobe.d/
+sudo cp -a ./mk_arcade_joystick_rpi-master/* /usr/src/mk_arcade_joystick_rpi-0.1.5/
+export MKVERSION=0.1.5
+sudo -E dkms build -m mk_arcade_joystick_rpi -v 0.1.5
+sudo -E dkms install -m mk_arcade_joystick_rpi -v 0.1.5
+sudo cp -rf ./etc/modules /etc/modules
+sudo cp -rf ./etc/modprobe.d/joystick.conf /etc/modprobe.d/
+
+fi
+
+echo "1" > ./boot/mark
+sudo dpkg -i -B ./xinput-calibrator_0.7.5-1_armhf.deb
+sudo apt-get install cmake -y
+cd ./rpi-fbcp/build/
+sudo cmake ..
+sudo make
+sudo install fbcp /usr/local/bin/fbcp
+cd ../../
+sudo mkdir /usr/share/X11/xorg.conf.d
+
+elif test "$var1" = "0" -a "$1" = "lite" ;then
+echo "1" > ./boot/mark
+echo "No touch driver installled"
+echo "No fbcp driver installled"
+sudo mkdir /usr/share/X11/xorg.conf.d
+
+fi
+
+if test "$j" != "kali" ;then
+if test "$1" != "lite" -a "$2" != "lite" ;then
+sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-HDMI  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+else
+sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+fi
+else
+sudo cp ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-kali /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+fi
+
+sudo cp ./etc/modules /etc/
+
+
+sudo cp -rf ./etc/rc.local-154 /etc/rc.local
+
+
+if test "$1" = "0" -o "$#" = "0" -o "$2" = "0";then
+	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-154  /usr/share/X11/xorg.conf.d/99-calibration.conf
+	sudo cp ./boot/config-154.txt /boot/config.txt
+	echo "LCD configrue 0"
+elif test "$1" = "lite" -a "$#" = "1" ;then
+        sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-154  /usr/share/X11/xorg.conf.d/99-calibration.conf
+        sudo cp ./boot/config-154.txt /boot/config.txt
+        echo "LCD configrue 0"
+elif test "$1" = "90" -o "$2" = "90";then
+	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
+	sudo cp ./boot/config-154.txt /boot/config.txt
+	sudo cp -rf ./etc/rc.local-154-90 /etc/rc.local
+	else
+	sudo cp ./boot/config-154.txt-90 /boot/config.txt
+	fi
+	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-154-90  /usr/share/X11/xorg.conf.d/99-calibration.conf
+	echo "LCD configrue 90"
+fi
+
+if [ -b /dev/mmcblk0p7 ]; then
+sudo cp ./cmdline.txt-noobs /boot/cmdline.txt
+else
+sudo cp ./cmdline.txt /boot/
+fi
+
+sudo cp ./inittab /etc/
+
+
+if test "$#" = "0" -o "$1" = "0" -o "$1" = "90"  -o "$1" = "180" -o "$1" = "270" -o "$2" = "0" -o "$2" = "90"  -o "$2" = "180" -o "$2" = "270" -o "$1" = "lite" -o "$2" = "lite" ; then
+sudo reboot
+echo "reboot now"
+else
+echo "Invalid parameter,Usage:LCD154-show [0] [90] [180] [270] [lite]"
+fi

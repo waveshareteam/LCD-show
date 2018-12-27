@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/fbcp.dir/main.c.o  -o fbcp  -L/opt/vc/lib -Wl,-rpath,/opt/vc/lib -rdynamic -lbcm_host 
