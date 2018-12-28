@@ -28,13 +28,13 @@ sudo cmake ..
 sudo make
 sudo install fbcp /usr/local/bin/fbcp
 cd ../../
-sudo mkdir /usr/share/X11/xorg.conf.d
+sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 elif test "$var1" = "0" -a "$1" = "lite" ;then
 echo "1" > ./boot/mark
 echo "No touch driver installled"
 echo "No fbcp driver installled"
-sudo mkdir /usr/share/X11/xorg.conf.d
+sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 fi
 
