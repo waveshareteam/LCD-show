@@ -19,8 +19,8 @@ fi
 if test "$j" = "retropie" ;then
 sudo cp -rf ./nes /home/pi/RetroPie/roms/
 
-sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
-sudo mkdir /etc/modprobe.d/
+sudo mkdir -p /usr/src/mk_arcade_joystick_rpi-0.1.5/
+sudo mkdir -p /etc/modprobe.d/
 sudo cp -a ./mk_arcade_joystick_rpi-master/* /usr/src/mk_arcade_joystick_rpi-0.1.5/
 export MKVERSION=0.1.5
 sudo -E dkms build -m mk_arcade_joystick_rpi -v 0.1.5
@@ -38,13 +38,13 @@ sudo cmake ..
 sudo make
 sudo install fbcp /usr/local/bin/fbcp
 cd ../../
-sudo mkdir /usr/share/X11/xorg.conf.d
+sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 elif test "$var1" = "0" -a "$1" = "lite" ;then
 echo "1" > ./boot/mark
 echo "No touch driver installled"
 echo "No fbcp driver installled"
-sudo mkdir /usr/share/X11/xorg.conf.d
+sudo mkdir -p /usr/share/X11/xorg.conf.d
 
 fi
 
