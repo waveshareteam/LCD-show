@@ -68,10 +68,14 @@ sudo cp ./boot/config-101-1024x600.txt-270 /boot/config.txt
 echo "LCD configrue 270"
 fi
 
-#sudo cp ./cmdline.txt /boot/
-#sudo cp ./inittab /etc/
 #sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-HDMI /usr/share/X11/xorg.conf.d/99-fbturbo.conf 
+if [ -b /dev/mmcblk0p7 ]; then
+sudo cp ./cmdline.txt-noobs /boot/cmdline.txt
+else
+sudo cp ./cmdline.txt /boot/
+fi
 
+sudo cp ./inittab /etc/
 
 if test "$#" = "0" -o "$1" = "0" -o "$1" = "90"  -o "$1" = "180" -o "$1" = "270" -o "$2" = "0" -o "$2" = "90"  -o "$2" = "180" -o "$2" = "270" -o "$1" = "lite" -o "$2" = "lite"; then
 sudo reboot
