@@ -40,7 +40,7 @@ CN: http://www.waveshare.net/wiki/3.2inch_RPi_LCD_(B)
 
 EN: https://www.waveshare.com/wiki/3.2inch_RPi_LCD_(B)
 
-Driver install：
+Driver install:
 
 sudo ./LCD32-show
 
@@ -53,12 +53,18 @@ This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Ca
 Website:
 
 CN:http://www.waveshare.net/shop/3.5inch-RPi-LCD-A.htm
+
 EN:https://www.waveshare.com/product/3.5inch-rpi-lcd-a.htm
 
 WIKI:
 
 CN:http://www.waveshare.net/wiki/3.5inch_RPi_LCD_(A)
+
 EN:https://www.waveshare.com/wiki/3.5inch_RPi_LCD_(A)
+
+Driver install:
+
+sudo ./LCD35-show
 
 # 3.5inch RPi LCD (B)
 
@@ -69,15 +75,18 @@ This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Ca
 Website:
 
 CN:http://www.waveshare.net/shop/3.5inch-RPi-LCD-B.htm
+
 EN:https://www.waveshare.com/3.5inch-RPi-LCD-B.htm
 
 WIKI:
 
 CN:http://www.waveshare.net/wiki/3.5inch_RPi_LCD_(B)
+
 EN:https://www.waveshare.com/wiki/3.2inch_RPi_LCD_(B)
 
 Driver install:
-sudo ./LCD35
+
+sudo ./LCD35B-show V2
 
 # 3.5inch RPi LCD (C)
 
@@ -88,11 +97,13 @@ This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Su
 Webiste：
 
 CN:http://www.waveshare.net/shop/3.5inch-RPi-LCD-C.htm
+
 EN:https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
 
 WIKI：
 
 CN:http://www.waveshare.net/wiki/3.5inch_RPi_LCD_(C)
+
 EN:https://www.waveshare.com/wiki/3.5inch_RPi_LCD_(C)
 
 Driver Install：
