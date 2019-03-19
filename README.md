@@ -2,7 +2,7 @@
 
 ### Description:
 
-This is a 2.8inch TFT LCD with resistive touch panel, has 320x240 resolution. It can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie.
+This is a 2.8inch TFT LCD with resistive touch panel, has 320x240 resolution. It can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali.
 
 ### Website：
 
@@ -25,7 +25,7 @@ sudo ./LCD28-show
 
 ### Description:
 
-This is a 3.2inch TFT LCD with resistive touch panel, has 320x240 resolution. Can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie. 
+This is a 3.2inch TFT LCD with resistive touch panel, has 320x240 resolution. Can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali. 
 
 ### Website：
 
@@ -47,7 +47,7 @@ sudo ./LCD32-show
 
 ### Description: 
 
-This is a 3.2inch TFT LCD with resistive touch panel, has 320x240 hardware resolution.Support up to 125MHz high-speed SPI signal transmission provide you a clear and stable display effect.. Can directly plug to any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie.
+This is a 3.2inch TFT LCD with resistive touch panel, has 320x240 hardware resolution.Support up to 125MHz high-speed SPI signal transmission provide you a clear and stable display effect.. Can directly plug to any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie(Can only display when working with Retropie).
 
 ### Website:
 
@@ -69,7 +69,7 @@ sudo ./LC32C-show
 
 ### Description:
 
-This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie. 
+This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali. 
 
 ### Website:
 
@@ -91,7 +91,7 @@ sudo ./LCD35-show
 
 ### Description:
 
-This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie. And this is an IPS screen which has wider viewing angle.
+This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Can support any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali. And this is an IPS screen which has wider viewing angle.
 
 ### Website:
 
@@ -113,7 +113,7 @@ sudo ./LCD35B-show V2
 
 ### Description:
 
-This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Support up to 125MHz high-speed SPI signal transmission provide you a clear and stable display effect.. Can directly plug to any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie.
+This is a 3.5inch TFT LCD with resistive touch panel, has 480x320 resolution. Support up to 125MHz high-speed SPI signal transmission provide you a clear and stable display effect.. Can directly plug to any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie(Can only display when working with Retropie).
 
 ### Webiste：
 
@@ -135,7 +135,7 @@ sudo ./LCD35C-show
 
 ### Description:
 
-This is a 3.5inch IPS screen with resistive touch panel, has 480x320 hardware resolution, use HDMI interface for displaying and GPIO for touching. Touch driver is provide for Raspbian, Ubuntu Mate,Kali and Retropie
+This is a 3.5inch IPS screen with resistive touch panel, has 480x320 hardware resolution, use HDMI interface for displaying and GPIO for touching. Touch driver is provide for Raspbian, Ubuntu Mate,Kali and Retropie(Can only display when working with Retropie).
 
 ### Website:
 
@@ -171,7 +171,7 @@ sudo ./LCD35-HDMI-480x320-show
 
 ### Description:
 
-This is a 4inch resistive LCD, IPS screen, 480x320 resoltuion, designed for Raspberry Pi. Driver is required for displaing and touching.
+This is a 4inch resistive LCD, IPS screen, 480x320 resoltuion, designed for Raspberry Pi. Driver is required for Raspbian, Ubuntu Mate,Kali.
 
 ### Website:
 
@@ -193,7 +193,7 @@ sudo ./LCD4-show
 
 ### Description:
 
-This is a 4inch TFT LCD with resistive touch panel, has 480x320 resolution. Support up to 125MHz high-speed SPI signal transmission provide you a clear and stable display effect. Can directly plug to any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie.
+This is a 4inch TFT LCD with resistive touch panel, has 480x320 resolution. Support up to 125MHz high-speed SPI signal transmission provide you a clear and stable display effect. Can directly plug to any revision of Raspberry Pi. Driver is provided for Raspbian/Ubuntu Mate/kali and Retropie(Can only display when working with Retropie).
 
 ### Website:
 
