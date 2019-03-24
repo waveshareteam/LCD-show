@@ -49,23 +49,23 @@ fi
 if test "$1" = "0" -o "$#" = "0" -o "$2" = "0"; then
 sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-101-1024x600  /usr/share/X11/xorg.conf.d/99-calibration.conf
 sudo cp ./boot/config-101-1024x600.txt /boot/config.txt
-echo "LCD configrue 0"
+echo "LCD configure 0"
 elif test "$1" = "lite" -a  "$#" = "1"; then
 sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-101-1024x600  /usr/share/X11/xorg.conf.d/99-calibration.conf
 sudo cp ./boot/config-101-1024x600.txt /boot/config.txt
-echo "LCD configrue 0"
+echo "LCD configure 0"
 elif test "$1" = "90" -o "$2" = "90"; then
 sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-101-1024x600-90  /usr/share/X11/xorg.conf.d/99-calibration.conf
 sudo cp ./boot/config-101-1024x600.txt-90 /boot/config.txt
-echo "LCD configrue 90"
+echo "LCD configure 90"
 elif test "$1" = "180" -o "$2" = "180" ;then
 sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-101-1024x600-180  /usr/share/X11/xorg.conf.d/99-calibration.conf
 sudo cp ./boot/config-101-1024x600.txt-180 /boot/config.txt
-echo "LCD configrue 180"
+echo "LCD configure 180"
 elif test "$1" = "270" -o "$2" = "270" ;then
 sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-101-1024x600-270  /usr/share/X11/xorg.conf.d/99-calibration.conf
 sudo cp ./boot/config-101-1024x600.txt-270 /boot/config.txt
-echo "LCD configrue 270"
+echo "LCD configure 270"
 fi
 
 #sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-HDMI /usr/share/X11/xorg.conf.d/99-fbturbo.conf 

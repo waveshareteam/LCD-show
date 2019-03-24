@@ -56,11 +56,11 @@ if test "$1" = "0" -o "$#" = "0" -o "$2" = "0";then
         if test "$j" = "retropie"; then
         sudo cp ./boot/config-32.txt-retropie /boot/config.txt
 	fi
-	echo "LCD configrue 0"
+	echo "LCD configure 0"
 elif test "$1" = "lite" -a "$#" = "1" ;then
         sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-32  /usr/share/X11/xorg.conf.d/99-calibration.conf
         sudo cp ./boot/config-32.txt /boot/config.txt
-        echo "LCD configrue 0"
+        echo "LCD configure 0"
 elif test "$1" = "90" -o "$2" = "90";then
 	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
 	sudo cp ./boot/config-32.txt-90-lite /boot/config.txt
@@ -68,7 +68,7 @@ elif test "$1" = "90" -o "$2" = "90";then
 	sudo cp ./boot/config-32.txt-90 /boot/config.txt
 	fi
 	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-32-90  /usr/share/X11/xorg.conf.d/99-calibration.conf
-	echo "LCD configrue 90"
+	echo "LCD configure 90"
 elif test "$1" = "180"  -o "$2" = "180" ;then
 	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
 	sudo cp ./boot/config-32.txt-180-lite /boot/config.txt
@@ -76,7 +76,7 @@ elif test "$1" = "180"  -o "$2" = "180" ;then
 	sudo cp ./boot/config-32.txt-180 /boot/config.txt
 	fi
 	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-32-180  /usr/share/X11/xorg.conf.d/99-calibration.conf
-	echo "LCD configrue 180"
+	echo "LCD configure 180"
 elif test "$1" = "270" -o "$2" = "270"; then
 	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
 	sudo cp ./boot/config-32.txt-270-lite /boot/config.txt
@@ -84,7 +84,7 @@ elif test "$1" = "270" -o "$2" = "270"; then
 	sudo cp ./boot/config-32.txt-270 /boot/config.txt
 	fi
 	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-32-270  /usr/share/X11/xorg.conf.d/99-calibration.conf
-	echo "LCD configrue 270"
+	echo "LCD configure 270"
 fi
 
 sudo cp ./waveshare32b-overlay.dtb /boot/overlays/waveshare32b.dtbo
