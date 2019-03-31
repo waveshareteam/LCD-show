@@ -80,7 +80,7 @@ elif test "$1" = "90" -o "$2" = "90";then
 	sudo cp ./boot/config-154.txt-90 /boot/config.txt
 	fi
 	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-154-90  /usr/share/X11/xorg.conf.d/99-calibration.conf
-	echo "LCD configrue 90"
+	echo "LCD configure 90"
 fi
 
 if [ -b /dev/mmcblk0p7 ]; then
