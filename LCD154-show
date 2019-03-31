@@ -67,11 +67,11 @@ sudo cp -rf ./etc/rc.local-154 /etc/rc.local
 if test "$1" = "0" -o "$#" = "0" -o "$2" = "0";then
 	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-154  /usr/share/X11/xorg.conf.d/99-calibration.conf
 	sudo cp ./boot/config-154.txt /boot/config.txt
-	echo "LCD configrue 0"
+	echo "LCD configure 0"
 elif test "$1" = "lite" -a "$#" = "1" ;then
         sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-154  /usr/share/X11/xorg.conf.d/99-calibration.conf
         sudo cp ./boot/config-154.txt /boot/config.txt
-        echo "LCD configrue 0"
+        echo "LCD configure 0"
 elif test "$1" = "90" -o "$2" = "90";then
 	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
 	sudo cp ./boot/config-154.txt /boot/config.txt
