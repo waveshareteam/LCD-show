@@ -51,7 +51,7 @@ sudo cp ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-kali /usr/share/X11/xorg.con
 fi
 
 
-if test "$1" = "0" -o "$#" = "0";then
+if test "$1" = "0" -o "$#" = "0" -o "$2" = "0";then
 	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-35  /usr/share/X11/xorg.conf.d/99-calibration.conf
 	sudo cp ./boot/config-35.txt /boot/config.txt
 	if test "$j" = "retropie"; then
