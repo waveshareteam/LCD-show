@@ -78,8 +78,8 @@ sudo cp ./inittab /etc/
 
 
 if test "$#" = "0" -o "$1" = "0" -o "$1" = "90"  -o "$1" = "180" -o "$1" = "270" -o "$2" = "0" -o "$2" = "90"  -o "$2" = "180" -o "$2" = "270" -o "$1" = "lite" -o "$2" = "lite"; then
-sudo reboot
 echo "reboot now"
+sudo reboot
 else
 echo "Invalid parameter,Usage:LCD5-show [0] [90] [180] [270] [lite]"
 fi
