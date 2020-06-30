@@ -159,7 +159,7 @@ hdmi_group=2
 
 hdmi_mode=87
 
-hdmi_cvt 800 480 60 6 0 0 0
+hdmi_cvt=800 480 60 6 0 0 0
 
 hdmi_drive=2
 
@@ -235,7 +235,7 @@ hdmi_group=2
 
 hdmi_mode=87
 
-hdmi_cvt 480 800 60 6 0 0 0
+hdmi_cvt=480 800 60 6 0 0 0
 
 dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=50000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
 
@@ -273,7 +273,7 @@ hdmi_group=2
 
 hdmi_mode=87
 
-hdmi_cvt 480 272 60 6 0 0 0
+hdmi_cvt=480 272 60 6 0 0 0
 
 dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=50000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
 
@@ -311,7 +311,7 @@ hdmi_group=2
 
 hdmi_mode=87
 
-hdmi_cvt 800 480 60 6 0 0 0
+hdmi_cvt=800 480 60 6 0 0 0
 
 hdmi_drive=1
 
@@ -345,7 +345,7 @@ hdmi_group=2
 
 hdmi_mode=87
 
-hdmi_cvt 1024 600 60 6 0 0 0
+hdmi_cvt=1024 600 60 6 0 0 0
 
 ### Driver install:
 
@@ -376,7 +376,7 @@ hdmi_group=2
 
 hdmi_mode=87
 
-hdmi_cvt 1024 600 60 6 0 0 0
+hdmi_cvt=1024 600 60 6 0 0 0
 
 ### Driver install:
 
