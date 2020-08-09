@@ -1,0 +1,102 @@
+/dts-v1/;
+
+/ {
+	compatible = "brcm,bcm2835\0brcm,bcm2708\0brcm,bcm2709";
+
+	fragment@0 {
+		target = < 0xdeadbeef >;
+
+		__overlay__ {
+			status = "okay";
+
+			spidev@0 {
+				status = "disabled";
+			};
+
+			spidev@1 {
+				status = "disabled";
+			};
+		};
+	};
+
+	fragment@1 {
+		target = < 0xdeadbeef >;
+
+		__overlay__ {
+
+			tft35a_pins {
+				brcm,pins = < 0x11 0x19 0x18 >;
+				brcm,function = < 0x00 0x00 0x00 >;
+				linux,phandle = < 0x01 >;
+				phandle = < 0x01 >;
+			};
+		};
+	};
+
+	fragment@2 {
+		target = < 0xdeadbeef >;
+
+		__overlay__ {
+			#address-cells = < 0x01 >;
+			#size-cells = < 0x00 >;
+
+			tft35a@0 {
+				compatible = "ilitek,ili9486";
+				reg = < 0x00 >;
+				pinctrl-names = "default";
+				pinctrl-0 = < 0x01 >;
+				spi-max-frequency = < 0x6dac2c0 >;
+				txbuflen = < 0x8000 >;
+				rotate = < 0x5a >;
+				bgr = < 0x00 >;
+				fps = < 0x1e >;
+				buswidth = < 0x08 >;
+				regwidth = < 0x10 >;
+				reset-gpios = < 0xdeadbeef 0x19 0x01 >;
+				dc-gpios = < 0xdeadbeef 0x18 0x00 >;
+				debug = < 0x00 >;
+				init = < 0x10000f1 0x36 0x04 0x00 0x3c 0x0f 0x8f 0x10000f2 0x18 0xa3 0x12 0x02 0xb2 0x12 0xff 0x10 0x00 0x10000f8 0x21 0x04 0x10000f9 0x00 0x08 0x1000036 0x08 0x10000b4 0x00 0x10000c1 0x41 0x10000c5 0x00 0x91 0x80 0x00 0x10000e0 0x0f 0x1f 0x1c 0x0c 0x0f 0x08 0x48 0x98 0x37 0x0a 0x13 0x04 0x11 0x0d 0x00 0x10000e1 0x0f 0x32 0x2e 0x0b 0x0d 0x05 0x47 0x75 0x37 0x06 0x10 0x03 0x24 0x20 0x00 0x100003a 0x55 0x1000011 0x1000036 0x28 0x20000ff 0x1000029 >;
+				linux,phandle = < 0x02 >;
+				phandle = < 0x02 >;
+			};
+
+			tft35a-ts@1 {
+				compatible = "ti,ads7846";
+				reg = < 0x01 >;
+				spi-max-frequency = < 0x1e8480 >;
+				interrupts = < 0x11 0x02 >;
+				interrupt-parent = < 0xdeadbeef >;
+				pendown-gpio = < 0xdeadbeef 0x11 0x01 >;
+				ti,x-plate-ohms = [ 00 3c ];
+				ti,pressure-max = [ 00 ff ];
+				linux,phandle = < 0x03 >;
+				phandle = < 0x03 >;
+			};
+		};
+	};
+
+	__overrides__ {
+		speed = < 0x02 0x7370692d 0x6d61782d 0x66726571 0x75656e63 0x793a3000 >;
+		txbuflen = [ 00 00 00 02 74 78 62 75 66 6c 65 6e 3a 30 00 ];
+		rotate = [ 00 00 00 02 72 6f 74 61 74 65 3a 30 00 ];
+		fps = [ 00 00 00 02 66 70 73 3a 30 00 ];
+		bgr = [ 00 00 00 02 62 67 72 3a 30 00 ];
+		debug = < 0x02 0x64656275 0x673a3000 >;
+		swapxy = < 0x03 0x74692c73 0x7761702d 0x78793f00 >;
+	};
+
+	__symbols__ {
+		tft35a_pins = "/fragment@1/__overlay__/tft35a_pins";
+		tft35a = "/fragment@2/__overlay__/tft35a@0";
+		tft35a_ts = "/fragment@2/__overlay__/tft35a-ts@1";
+	};
+
+	__fixups__ {
+		spi0 = "/fragment@0:target:0\0/fragment@2:target:0";
+		gpio = "/fragment@1:target:0\0/fragment@2/__overlay__/tft35a@0:reset-gpios:0\0/fragment@2/__overlay__/tft35a@0:dc-gpios:0\0/fragment@2/__overlay__/tft35a-ts@1:interrupt-parent:0\0/fragment@2/__overlay__/tft35a-ts@1:pendown-gpio:0";
+	};
+
+	__local_fixups__ {
+		fixup = "/fragment@2/__overlay__/tft35a@0:pinctrl-0:0\0/__overrides__:speed:0\0/__overrides__:txbuflen:0\0/__overrides__:rotate:0\0/__overrides__:fps:0\0/__overrides__:bgr:0\0/__overrides__:debug:0\0/__overrides__:swapxy:0";
+	};
+};
