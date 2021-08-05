@@ -1,0 +1,1 @@
+cmd_/home/pi/LCD-show-master/st7789_module/fb_st7789v.ko := ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/pi/LCD-show-master/st7789_module/fb_st7789v.ko /home/pi/LCD-show-master/st7789_module/fb_st7789v.o /home/pi/LCD-show-master/st7789_module/fb_st7789v.mod.o;  true
