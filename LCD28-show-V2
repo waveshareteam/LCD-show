@@ -1,0 +1,120 @@
+if ([ -d ./LCD-show-master ]); then
+cd ./LCD-show-master
+elif ([ -d ./LCD-show ]); then
+cd ./LCD-show
+fi
+
+i=1
+for lines in `cat ./boot/mark`
+do
+  case ${i} in
+  1) var1=${lines};;
+  esac
+  i=`expr ${i} + 1`
+done
+#echo "$var1"
+
+j=$(uname -n)
+
+if test "$j" != "kali" ;then
+if test "$1" != "lite" -a "$2" != "lite" ;then
+sudo cp -rf ./etc/rc.local-gpio-28 /etc/rc.local
+sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-HDMI  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+else
+sudo cp -rf ./etc/rc.local /etc/rc.local
+sudo cp -rf ./usr/share/X11/xorg.conf.d/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+fi
+else
+sudo cp ./usr/share/X11/xorg.conf.d/99-fbturbo.conf-kali /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+fi
+
+if test "$1" = "0" -o "$#" = "0" -o "$2" = "0";then
+	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-28-v2  /usr/share/X11/xorg.conf.d/99-calibration.conf
+	sudo cp ./boot/config-28-v2.txt /boot/config.txt
+        if test "$j" = "retropie"; then
+        sudo cp ./boot/config-28-v2.txt-retropie /boot/config.txt
+	fi
+	echo "LCD configure 0"
+elif test "$1" = "lite" -a "$#" = "1" ;then
+        sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-28-v2  /usr/share/X11/xorg.conf.d/99-calibration.conf
+        sudo cp ./boot/config-28-v2.txt /boot/config.txt
+        echo "LCD configure 0"
+elif test "$1" = "90" -o "$2" = "90";then
+	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
+	sudo cp ./boot/config-28-v2.txt-90-lite /boot/config.txt
+	else
+	sudo cp ./boot/config-28-v2.txt-90 /boot/config.txt
+        fi
+        sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-28-v2-90  /usr/share/X11/xorg.conf.d/99-calibration.conf
+	echo "LCD configure 90"
+elif test "$1" = "180"  -o "$2" = "180" ;then
+	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
+	sudo cp ./boot/config-28-v2.txt-180-lite /boot/config.txt
+	else
+	sudo cp ./boot/config-28-v2.txt-180 /boot/config.txt
+	fi
+	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-28-v2-180  /usr/share/X11/xorg.conf.d/99-calibration.conf
+	echo "LCD configure 180"
+elif test "$1" = "270" -o "$2" = "270"; then
+	if test "$1" = "lite" -o "$2" = "lite" -o "$j" = "kali" ; then
+	sudo cp ./boot/config-28-v2.txt-270-lite /boot/config.txt
+	else
+	sudo cp ./boot/config-28-v2.txt-270 /boot/config.txt
+	fi
+	sudo cp -rf ./etc/X11/xorg.conf.d/99-calibration.conf-28-v2-270  /usr/share/X11/xorg.conf.d/99-calibration.conf
+	echo "LCD configure 270"
+fi
+
+sudo cp ./waveshare28-v2.dtbo /boot/overlays/waveshare28-v2.dtbo
+sudo cp ./waveshare28-v2.dtbo /boot/overlays/waveshare28-v2-overlay.dtb
+
+
+#sudo apt-get update -y --fix-missing
+#sudo apt-get upgrade --fix-missing  -y
+
+if test "$j" != "retropie" ;then
+sudo apt-get install xserver-xorg-input-evdev --fix-missing  -y
+sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
+sudo apt-get install xinput-calibrator
+fi
+
+if test "$j" = "retropie" ;then
+sudo cp -rf ./nes /home/pi/RetroPie/roms/
+fi
+
+echo "1" > ./boot/mark
+#sudo apt-get install cmake -y
+cd ./rpi-fbcp/build/
+#sudo cmake ..
+#sudo make
+sudo install fbcp /usr/local/bin/fbcp
+cd ../../
+sudo mkdir -p /usr/share/X11/xorg.conf.d
+
+#sudo chmod 777 ./boot/shh-reboot
+#sudo cp ./boot/shh-reboot /usr/local/bin/
+#sudo cp -rf ./boot /usr/local/bin/
+#sudo cp -rf ./st7789_module /usr/local/bin/
+
+#echo "-----------reboot now-----------"
+#sudo reboot
+#exit 0
+
+
+
+if [ -b /dev/mmcblk0p7 ]; then
+sudo cp ./cmdline.txt-noobs /boot/cmdline.txt
+else
+sudo cp ./cmdline.txt /boot/
+fi
+
+#sudo cp ./inittab /etc/
+
+
+if test "$#" = "0" -o "$1" = "0" -o "$1" = "90"  -o "$1" = "180" -o "$1" = "270" -o "$2" = "0" -o "$2" = "90"  -o "$2" = "180" -o "$2" = "270" -o "$1" = "lite" -o "$2" = "lite" ; then
+sudo reboot
+echo "reboot now"
+else
+echo "Invalid parameter,Usage:LCD28-show-V2 [0] [90] [180] [270] [lite]"
+fi
+
