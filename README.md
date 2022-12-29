@@ -63,7 +63,7 @@ EN: https://www.waveshare.com/wiki/3.2inch_RPi_LCD_(C)
 
 ### Driver install:
 
-sudo ./LC32C-show
+sudo ./LCD32C-show
 
 # 3.5inch RPi LCD (A)
 
